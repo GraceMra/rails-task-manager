@@ -1,0 +1,20 @@
+<div class="container">
+
+  <div class="alert alert-secondary" role="alert">
+    <h2><%= @task.title %>
+      <button type="button" class="btn btn-default btn-sm" <span class="glyphicon glyphicon-pencil"></span> <%=link_to "Edit this task", edit_path%></h2></button>
+
+    <br><br>
+    <p>Details of the task:</p>
+    <h3><%= @task.details %></h3>
+      <br>
+      <% if @task.completed == true %>
+        <h5><%= "Your task is completed!" %></h5>
+        <% else %>
+        <h5><%= "This task is not completed yet" %></h5>
+      <% end %>
+
+      <hr>
+      <%=link_to "Back to list", index_path%>
+  </div>
+</div>

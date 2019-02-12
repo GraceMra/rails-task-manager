@@ -1,0 +1,36 @@
+<div class="container">
+
+  <h1>List of the tasks</h1>
+  <br>
+  <div id="checkboxes">
+    <ul>
+      <% @tasks.each do |task| %>
+        <li>
+          <% if task.completed == true %>
+          <span class="glyphicon glyphicon-unchecked"> </span><%=  link_to task.title, task_path(task) %> -
+          <span class="glyphicon glyphicon-trash"> </span>
+            <%= link_to destroy_path(task),
+            method: :delete,
+            data: { confirm: "Are you sure?" } do %> <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          <% else %>
+          <span class="glyphicon glyphicon-check"> </span>
+          <%= link_to task.title, task_path(task) %> -
+            <%= link_to destroy_path(task),
+            method: :delete,
+            data: { confirm: "Are you sure?" } do %> <span class="glyphicon glyphicon-trash"></span>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<br><br><br><br>
+<hr>
+
+  <div class="btn btn-lg">
+    <span class="glyphicon glyphicon-plus"></span>
+    <%=link_to "Add a new task", new_path %>
+  </div>
+
+</div>
